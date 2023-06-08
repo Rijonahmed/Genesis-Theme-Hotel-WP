@@ -86,35 +86,43 @@ get_header();
 </div>
 </section>
 <!-- package section end -->
+<section class="container row mt-5">
+    <div class="col-md-3"><h1>OOB Events</h1></div>
+    <div class="col-md-8"><h6>You can find information about events at Ogunquit Beach by visiting the town's website or the website for the local chamber of commerce.</h6></div>
+    <div class="col-md-1"><h1>hello</h1></div>
+
+</section>
 
 <!-- sister properties section start -->
 
-<section class="py-5" style="background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNhcnN8ZW58MHx8MHx8fDA%3D&w=1000&q=80'); background-repeat: no-repeat; background-size: cover;">
+<section class="py-5" style="background-image: url('https://thegrandhotel.com/wp-content/themes/themariner-pro/assets/img/resort-bg.png'); background-repeat: no-repeat; background-size: cover;">
+<div class="my-5">
 <p class="text-center">our</p>
 <h1 class="text-center">sister properties</h1>
+</div>
 <div class="card-group gap-3 container">
 <div class="card" style="width: 23rem;">
-  <img src="https://img.freepik.com/premium-photo/front-view-generic-brandless-moder-car_110488-502.jpg" class=" m-2" alt="...">
+  <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class=" m-4" alt="...">
   <div class="card-body text-center">
     <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Book Now</a>
+    <a href="#" class="btn btn-outline-secondary">Explore More</a>
   </div>
 </div>
 <div class="card" style="width: 23rem;">
-  <img src="https://img.freepik.com/premium-photo/front-view-generic-brandless-moder-car_110488-502.jpg" class=" m-2" alt="...">
+  <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class=" m-4" alt="...">
   <div class="card-body text-center">
     <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Book Now</a>
+    <a href="#" class="btn btn-outline-secondary">Explore More</a>
   </div>
 </div>
 <div class="card" style="width: 23rem;">
-  <img src="https://img.freepik.com/premium-photo/front-view-generic-brandless-moder-car_110488-502.jpg" class=" m-2" alt="...">
+  <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class=" m-4" alt="...">
   <div class="card-body text-center">
     <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Book Now</a>
+    <a href="#" class="btn btn-outline-secondary">Explore More</a>
   </div>
 </div>
 </div>
