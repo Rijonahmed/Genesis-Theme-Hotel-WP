@@ -4,7 +4,7 @@
      
   GALLERY SLIDER*/
   $('.single-item').slick({
- 
+    arrows: false,
     autoplay:true,
     loop: true,
     dots: true

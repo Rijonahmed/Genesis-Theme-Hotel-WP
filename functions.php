@@ -36,3 +36,6 @@ require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-notice.p
 
 // Theme customisation files 
 require_once get_stylesheet_directory() . '/config/theme-setting.php';
+
+// Theme custom slider files 
+require_once get_stylesheet_directory() . '/inc/custom-slider.php';

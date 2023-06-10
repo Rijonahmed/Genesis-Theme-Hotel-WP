@@ -206,7 +206,7 @@ slider Area Style
   background-position: center;
   position: relative;
   z-index: 2;
-  height: 75vh;
+  height: 100vh;
   
 }
 .single-slider .silder-img:before {
@@ -269,26 +269,31 @@ slider Area Style
 #slider-section .slick-dots {
   list-style: none;
   position: absolute;
-  left: 50%;
-  bottom: 2px;
+  left: 2px;
+  bottom: 50%;
+  display: flex;
+  flex-direction: column;
   transform: translateX(-50%);
 }
 #slider-section .slick-dots li {
   display: inline-block;
   margin: 0 5px;
+  
 }
 #slider-section .slick-dots li button {
-  display: none;
-  border: 0;
+ 
+  border: 2px solid white;
   width: 20px;
   height: 20px;
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
+ 
+
 }
 #slider-section .slick-dots li.slick-active button {
   background-color: #000000;
-  color: #fff;
+ 
 }
  /* .slick-slide {
   height: 100vh;

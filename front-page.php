@@ -58,15 +58,46 @@ get_header();
   </div>
 </section>
 <!-- Main Header End -->
+
+<!-- slider area start -->
+<section>
+<div id="slider-section"  class="single-item">
+<?php
+    query_posts('post_type=slide&post_status=publish&post_per_page=3&order=ASC&paged='.get_query_var       ('post'));
+    if(have_posts()) :
+        while(have_posts()) :
+            the_post();
+    ?>
+
+  <div class="single-slider">
+      <div class="slider-content">
+          <h4><?php the_title();?></h4>
+          <h6><?php the_content(); ?></h6>
+          <a href="">read more</a>
+      </div>
+     <div class="silder-img"><?php the_post_thumbnail(); ?></div>
+      
+  </div>
+
+  <?php 
+  endwhile; endif;
+  ?>
+
+</div>
+
+</section>
+<!-- slider area end -->
+
+
 <!-- package section start -->
 <section  class="py-3 " style="background-image: url('https://thegrandhotel.com/wp-content/themes/themariner-pro/assets/img/pkg-bg.jpg'); background-repeat: no-repeat; background-size: cover;">
 <div class="d-flex gap-4 justify-content-center my-5" >
 
 
-<div class="card " style="width: 30rem;">
-  <img src="https://thegrandhotel.com/wp-content/uploads/slide-entrance.jpg.webp" class=" m-2" id="package-card-img" alt="...">
+<div class="card opacity-50" style="width: 30rem;">
+  <img src="https://thegrandhotel.com/wp-content/uploads/slide-entrance.jpg.webp" class="m-2" id="package-card-img" alt="...">
  <img class="w-25 package-card-img-smail" src="https://i.ibb.co/Tq135y6/Shape-10.png" alt="Shape-10">
-  <div class="card-body text-center">
+  <div class="card-body text-center ">
     <h5 class="card-title text-primary">FAMILY FUN PACKAGE</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo soluta beatae nostrum. Reprehenderit optio suscipit officia vero inventore ullam vitae?</p>
     <a href="#" class="btn btn-primary">Book Now</a>
@@ -101,7 +132,7 @@ get_header();
 <h1 class="text-center">sister properties</h1>
 </div>
 <div class="card-group gap-3 container">
-<div class="card" style="width: 23rem;">
+<div class="card border border-2" style="width: 23rem;">
   <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class=" m-4" alt="...">
   <div class="card-body text-center">
     <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
@@ -109,7 +140,7 @@ get_header();
     <a href="#" class="btn btn-outline-secondary">Explore More</a>
   </div>
 </div>
-<div class="card" style="width: 23rem;">
+<div class="card border border-2" style="width: 23rem;">
   <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class=" m-4" alt="...">
   <div class="card-body text-center">
     <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
@@ -117,7 +148,7 @@ get_header();
     <a href="#" class="btn btn-outline-secondary">Explore More</a>
   </div>
 </div>
-<div class="card" style="width: 23rem;">
+<div class="card border border-2" style="width: 23rem;">
   <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class=" m-4" alt="...">
   <div class="card-body text-center">
     <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
@@ -129,6 +160,8 @@ get_header();
 
 </section>
 <!-- sister properties section end -->
+
+
 
 
 <?php
