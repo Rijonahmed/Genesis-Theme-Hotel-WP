@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-/* top header */
+/* top header
 .top-header{
   display: flex;
   justify-content: space-between;
@@ -25,7 +25,7 @@
 .top-menu ul li a{
 text-decoration: none;
 color: #fff;
-}
+} */
 
 #hotel_before_header_block {
   padding: 10px 0;
@@ -466,8 +466,13 @@ slider Area Style
 
 
   /* package section style  start*/
+
+  #package-card{
+    background-color: rgba(255, 255, 255, 0.6);
+  }
   #package-card-img{
     position: relative;
+    
   }
   .package-card-img-smail{
     position: absolute;
@@ -476,6 +481,10 @@ slider Area Style
   }
 
   /* package section style end*/
+
+  #sister-card{
+    background-color: rgba(255, 255, 255, 0.6);
+  }
 
   
   
