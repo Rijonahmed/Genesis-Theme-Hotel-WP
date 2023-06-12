@@ -33,7 +33,7 @@ function custom_slider(){
 }
 add_action( 'init', 'custom_slider');
 
-// custom package register
+// custom package register start
 function custom_package(){
     register_post_type( 'package', 
     array(
@@ -65,6 +65,58 @@ function custom_package(){
     add_theme_support('post-thumbnails');
 }
 add_action( 'init', 'custom_package');
+
+// custom package register end
+
+//custom Gallery register start
+register_post_type('gallery', array(
+    'labels' => array(
+        'name' => ('Gallery'),
+        'singular_name' => ('Gallery'),
+        'add_new' => ('Add New'),
+        'add_new_item' => ('Add New'),
+        'new_item' => ('New'),
+        'edit_item' => ('Edit'),
+        'view_item' => ('View'),
+        'not_found' => ('Post Not Found'),
+    ),
+    'menu_position' => 6,
+    'menu_icon' => 'dashicons-format-gallery',
+    'public' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => true,
+    'has_archive' => true,
+    'show_ui' => true,
+    'capability_type' => 'post',
+    'rewrite' => array('slag' => 'gallery'),
+    'supports' => array('title' , 'thumbnail' , 'editor' , 'excerpt'),
+));
+
+// Event
+register_post_type('event', array(
+    'labels' => array(
+        'name' => ('Event'),
+        'singular_name' => ('Event'),
+        'add_new' => ('Add New'),
+        'add_new_item' => ('Add New'),
+        'new_item' => ('New'),
+        'edit_item' => ('Edit'),
+        'view_item' => ('View'),
+        'not_found' => ('Post Not Found'),
+    ),
+    'menu_position' => 7,
+    'menu_icon' => 'dashicons-calendar-alt',
+    'public' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => true,
+    'has_archive' => true,
+    'show_ui' => true,
+    'capability_type' => 'post',
+    'rewrite' => array('slag' => 'event'),
+    'supports' => array('title' , 'thumbnail' , 'editor' , 'excerpt'),
+));
+
+//custom Gallery register end
 
 
 // custom sister properties register

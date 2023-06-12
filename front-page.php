@@ -89,7 +89,6 @@ get_header();
 </section>
 <!-- slider area end -->
 
-
 <!-- package section start -->
 <section  class="py-3 " style="background-image: url('https://thegrandhotel.com/wp-content/themes/themariner-pro/assets/img/pkg-bg.jpg'); background-repeat: no-repeat; background-size: cover;">
 <div class="d-flex gap-4 justify-content-center my-5" >
@@ -116,7 +115,7 @@ $button = $package_block[ 'button' ] ?? '';
   <div class="card-body text-center ">
     <h5 class="card-title text-primary"><?php the_title();?></h5>
     <p class="card-text"><?php the_content(); ?></p>
-    <a href="<?php the_permalink();?>" class="btn btn-primary"><?php echo $button?></a>
+  <p>  <a href="<?php the_permalink();?>" class=" hotel-grediant-button "><?php echo $button?></a></p>
   </div>
 </div>
 
@@ -139,12 +138,162 @@ $button = $package_block[ 'button' ] ?? '';
 </div>
 </section>
 <!-- package section end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- gallery start -->
+<section id="gallery_block">
+  <!-- gallery content block start-->
+  <section id="gallery_content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <span class="devider">
+            <!-- devider -->
+          </span>
+          <?php 
+            query_posts('post_type=page&post_status=publish&post_per_page=-1&order=ASC&paged='.get_query_var('post'));
+            if(have_posts()):
+              the_post();
+            $gallery_block = rwmb_meta( 'gallery_block' );
+            $title = $gallery_block[ 'title' ] ?? '';
+            $heading = $gallery_block[ 'heading' ] ?? '';
+            $description = $gallery_block[ 'description' ] ?? '';
+          ?>
+          <p class="title">
+            <?php echo $title ?>
+          </p>
+          <h2 class="heading">
+            <?php echo $heading ?>
+          </h2>
+          <p class="description">
+            <?php echo $description ?>
+          </p>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Gallery content block end -->
+  <!-- gallery image block start -->
+  <section id="gallery_images">
+    <div class="container">
+      <div class="row">
+        <?php
+          query_posts('post_type=gallery&post_status=publish&post_per_page=4&order=ASC&paged='.get_query_var('post'));
+            if(have_posts()) :
+              while(have_posts()) :
+                the_post();
+        ?>
+        <div class="col-md-3">
+          <a href="#">
+            <?php the_post_thumbnail(); ?>
+          </a>
+        </div>
+        <?php endwhile; endif; ?>
+      </div>
+    </div>
+  </section>
+  <!-- gallery image block end -->
+</section>
+<!-- gallery end -->
+<!-- Enevt Block Start -->
+<section id="event_block">
+  <!-- event gallery start -->
+  <section id="event_gallery">
+    <div class="container">
+      <div class="row">
+      <?php
+          query_posts('post_type=event&post_status=publish&post_per_page=4&order=ASC&paged='.get_query_var('post'));
+            if(have_posts()) :
+              while(have_posts()) :
+                the_post();
+        ?>
+        <div class="col-md-6">
+          <a href="#">
+          <?php the_post_thumbnail(); ?>
+          </a>
+        </div>
+        <?php endwhile;endif; ?>
+      </div>
+    </div>
+  </section>
+  <!-- event gallery end -->
+
+  <!-- event details start -->
+  <section id="event_content">
+    <div class="containier">
+      <div class="row">
+        <?php 
+          query_posts('post_type=page&post_status=publish&post_per_page=-1&order=ASC&paged='.get_query_var('post'));
+          if(have_posts()):
+            the_post();
+          $event_block = rwmb_meta( 'event_block' );
+          $heading = $event_block[ 'heading' ] ?? '';
+          $description = $event_block[ 'description' ] ?? '';
+          $button = $event_block[ 'button' ] ?? '';
+        ?>
+        <div class="col-md-3">
+          <h2 class="heading">
+          <?php echo $heading; ?>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p class="description">
+            <?php echo $description; ?>
+          </p>
+        </div>
+        <div class="col-md-3">
+          <a href="#" class="button">
+            <?php echo $button; ?>
+          </a>
+        </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="container row mt-5">
     <div class="col-md-2"><h1>OOB Events</h1></div>
     <div class="col-md-8"><h6 class="text-center">You can find information about events at Ogunquit Beach by visiting the town's website or the website for the local chamber of commerce.</h6></div>
     <div class="col-md-2"><a href="#" class="btn btn-outline-secondary">Explore More</a></div>
 
 </section>
+
 
 <!-- sister properties section start -->
 
@@ -170,30 +319,38 @@ $heading = $sister[ 'heading' ] ?? '';
 
 <div class="card-group gap-3 container">
 
+<?php
+    query_posts('post_type=Sister&post_status=publish&post_per_page=3&order=ASC&paged='.get_query_var       ('post'));
+    if(have_posts()) :
+        while(have_posts()) :
+            the_post();
+
+
+            $sister_propertise_button = rwmb_meta( 'button' ?? '' );
+
+    ?>
+
+
 <div id="sister-card" class="card border border-2 shadow" style="width: 23rem;">
-  <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class=" m-4" alt="...">
+  <img src="<?php echo get_the_post_thumbnail_url(); ?>" class=" m-4" alt="...">
   <div class="card-body text-center">
-    <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-outline-secondary">Explore More</a>
+    <h5 class="card-title text-primary"><?php the_title();?></h5>
+    <p class="card-text"><?php the_content(); ?></p>
+    <a href="#" class="btn btn-outline-secondary"><?php echo $sister_propertise_button ?></a>
   </div>
 </div>
-<div class="card border border-2 shadow" style="width: 23rem;">
-  <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class=" m-4" alt="...">
-  <div class="card-body text-center">
-    <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-outline-secondary">Explore More</a>
-  </div>
-</div>
-<div class="card border border-2 shadow" style="width: 23rem;">
-  <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class=" m-4" alt="...">
-  <div class="card-body text-center m-4">
-    <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-outline-secondary">Explore More</a>
-  </div>
-</div>
+
+<?php 
+  endwhile; endif;
+  ?>
+
+
+
+
+
+
+
+
 </div>
 
 </section>
