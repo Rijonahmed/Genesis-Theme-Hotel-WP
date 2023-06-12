@@ -11,7 +11,8 @@
   });
 // welcome to fution section 
   $('.multiple-items').slick({
-    infinite: true,
+    arrows: false,
+    infinite: false,
     slidesToShow: 2,
     slidesToScroll: 1
   });

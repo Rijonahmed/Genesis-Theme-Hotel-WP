@@ -2,26 +2,6 @@
 // Template Name:Home
 get_header();
 ?>
-<!-- Before Header Start-->
-<section id="hotel_before_header_block">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 before_header_widget_left">
-        <p>
-          The Vacation Is Yours
-        </p>
-      </div>
-      <div class="col-md-6 before_header_widget_right">
-        <a href="#">sister property</a>
-        <a href="#">sister property</a>
-        <a href="#">sister property</a>
-        <a href="#">sister property</a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Before Header End-->
-
 
 <!-- Main Header Start-->
 <section id="hotel_main_header_block">
@@ -89,6 +69,75 @@ get_header();
 </section>
 <!-- slider area end -->
 
+<!-- Grand Hotel section start -->
+
+<section>
+<div class="row">
+  <div id="grand-hotel-bg-style" class="col-lg-4" style="background-image: url('https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-2.jpg.webp'); background-repeat: no-repeat; background-size: cover;">
+    
+    <div class="grand-hotel-contain">
+      <p>PERFECT STEY</p>
+      <h3>GRAND HOTEL</h3>
+      <i>Enjoy your stey</i>
+    </div>
+   
+  </div>
+
+  <div class="col-lg-8">
+
+<div class="row my-4 multiple-items">
+
+<div class=" border-0 col-lg-4">
+    <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class="card-img-top" alt="...">
+    <div class="card-body d-flex justify-content-between border-bottom border-4">
+      <h5 class="card-title">Card title</h5>
+      <p class="fw-bold fs-2">&gt;</p>
+    </div>
+  </div>
+  
+  <div class="border-0 col-lg-4">
+    <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class="card-img-top" alt="...">
+    <div class="card-body d-flex justify-content-between border-bottom border-4">
+      <h5 class="card-title">Card title</h5>
+      <p class="fw-bold fs-2">&gt;</p>
+    </div>
+  </div>
+
+  <div class="border-0 col-lg-4">
+    <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp" class="card-img-top" alt="...">
+    <div class="card-body d-flex justify-content-between border-bottom border-4">
+      <h5 class="card-title">Card title</h5>
+      <p class="fw-bold fs-2">&gt;</p>
+    </div>
+  </div>
+
+</div>
+ 
+
+  </div>
+
+</div>
+</section>
+
+<!-- Grand Hotel section end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- package section start -->
 <section  class="py-3 " style="background-image: url('https://thegrandhotel.com/wp-content/themes/themariner-pro/assets/img/pkg-bg.jpg'); background-repeat: no-repeat; background-size: cover;">
 <div class="d-flex gap-4 justify-content-center my-5" >
@@ -122,19 +171,6 @@ $button = $package_block[ 'button' ] ?? '';
 <?php 
   endwhile; endif;
   ?>
-
-
-
-<!-- <div class="card" style="width: 30rem;">
-  <img src="https://thegrandhotel.com/wp-content/uploads/GH-Amenities-Photoshopped_101-scaled.jpg.webp" class="m-2" id="package-card-img" alt="...">
-  <img class="w-25 package-card-img-smail" src="https://i.ibb.co/K06pK8X/Shape-11.png" alt="Shape-11">
- 
-  <div class="card-body text-center">
-    <h5 class="card-title text-primary">ROMANCE PACKAGE</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt nesciunt voluptates asperiores tempora dignissimos exercitationem! Hic in asperiores quasi sunt.</p>
-    <a href="#" class="btn btn-primary">Book Now</a>
-  </div>
-</div> -->
 </div>
 </section>
 <!-- package section end -->
@@ -165,7 +201,9 @@ $button = $package_block[ 'button' ] ?? '';
 
 
 <!-- gallery start -->
-<section id="gallery_block">
+<section style="background-image: url('https://i.ibb.co/VLq8BLt/instagram-bg.png'); background-repeat: no-repeat; background-size: cover;">
+
+<section id="gallery_block" >
   <!-- gallery content block start-->
   <section id="gallery_content">
     <div class="container">
@@ -184,13 +222,13 @@ $button = $package_block[ 'button' ] ?? '';
             $description = $gallery_block[ 'description' ] ?? '';
           ?>
           <p class="title">
-            <?php echo $title ?>
+            <?php echo $title ?> title
           </p>
           <h2 class="heading">
-            <?php echo $heading ?>
+            <?php echo $heading ?> Heading
           </h2>
           <p class="description">
-            <?php echo $description ?>
+            <?php echo $description ?> Description
           </p>
           <?php endif; ?>
         </div>
@@ -275,6 +313,7 @@ $button = $package_block[ 'button' ] ?? '';
       </div>
     </div>
   </section>
+ </section>
 
 
 
@@ -287,12 +326,7 @@ $button = $package_block[ 'button' ] ?? '';
 
 
 
-<section class="container row mt-5">
-    <div class="col-md-2"><h1>OOB Events</h1></div>
-    <div class="col-md-8"><h6 class="text-center">You can find information about events at Ogunquit Beach by visiting the town's website or the website for the local chamber of commerce.</h6></div>
-    <div class="col-md-2"><a href="#" class="btn btn-outline-secondary">Explore More</a></div>
 
-</section>
 
 
 <!-- sister properties section start -->

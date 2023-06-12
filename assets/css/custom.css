@@ -39,7 +39,7 @@ color: #fff;
 } */
 
 #hotel_before_header_block {
-  padding: 10px 0;
+  padding: 7px 0;
   background-color: #70b5d9;
 }
 #hotel_before_header_block .before_header_widget_left,
@@ -59,7 +59,7 @@ color: #fff;
   justify-content: right;
 }
 #hotel_before_header_block .before_header_widget_right a {
-  margin: 0 10px;
+  margin: 0 7px;
   color: #fff;
   font-size: 18px;
   font-weight: 600;
@@ -81,7 +81,7 @@ color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 20px;
+  padding: 15px 10px;
 }
 #hotel_main_header_block .header_logo {
   width: 150;
@@ -101,7 +101,7 @@ color: #fff;
   position: relative;
 }
 #hotel_main_header_block .header_nav_manu ul li a {
-  padding: 8px 12px;
+  padding: 8px 8px;
   text-decoration: none;
   color: #000;
   font-size: 16px;
@@ -200,12 +200,13 @@ color: #fff;
 }
 #hotel_main_header_block .header_widgets a {
   color: #fff;
-  background-color: #80715f;
+  text-decoration: none;
+  background: linear-gradient(to right, #b4afa9, #7e6f5d);
   font-size: 16px;
   font-weight: 500;
   padding: 10px 15px;
   border-radius: 4px;
-}
+} 
 
 
 
@@ -289,10 +290,11 @@ slider Area Style
 #slider-section .slick-dots li {
   display: inline-block;
   margin: 0 5px;
+
   
 }
 #slider-section .slick-dots li button {
- 
+  text-indent: -9999px;
   border: 2px solid white;
   width: 20px;
   height: 20px;
@@ -338,7 +340,7 @@ slider Area Style
 /*=======================================
   footer_area  Style
 ========================================*/
-/* footer /
+ /* footer  */
 #footer_area{
     background-color: #bad6e5;
     padding: 100px 0 50px 0;
@@ -389,7 +391,7 @@ slider Area Style
 
 
 
-  / footer map /
+   /* footer map  */
 #footer_area .footer_map #gmap_canvas {
     position: absolute;
     right: 0;
@@ -399,7 +401,7 @@ slider Area Style
   }
 
 
-/ Footer Copyright */
+/* Footer Copyright */
 #footer_copyright_area{
   text-align: center;
   padding: 10px 0;
@@ -496,6 +498,75 @@ slider Area Style
   #sister-card{
     background-color: rgba(255, 255, 255, 0.6);
   }
+
+
+
+  #grand-hotel-bg-style{
+    background-color: rgba(29, 6, 243,);
+    z-index: 1;
+    position: relative;
+
+  }
+  #grand-hotel-bg-style::after{
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 100%;
+background-color: #7aafc5;
+content:'';
+opacity: .7;
+  }
+  .grand-hotel-contain{
+    z-index: 99999; 
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+text-align: center;
+color: #f8f8f8;
+  }
+  .grand-hotel-contain::before{
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: -10px;
+    height: 3px;
+    width: 30px;
+    background-color: rgb(255, 255, 255);
+    content: '';
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
