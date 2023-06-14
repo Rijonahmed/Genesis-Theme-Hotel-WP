@@ -42,3 +42,56 @@ function genesis_sample_secondary_menu_args( $args ) {
 
 
 
+
+
+
+register_nav_menu(
+	'main_menu' , __('Main Menu' , 'rijon'),
+);
+
+
+
+
+
+
+
+// Main Header - Nav Menu
+add_action('genesis_header','hotel_customize_main_header');
+function hotel_customize_main_header(){
+	?>
+		<!-- Main Header Start-->
+		<section id="hotel_main_header_block">
+		<!-- logo -->
+		<div class="header_logo">
+			<a href="<?php echo home_url(); ?>">
+				<img src="<?php echo get_theme_mod('hotel_header_logo_setting'); ?>" alt="">
+			</a>
+		</div>
+		<!-- menu -->
+		<nav class="header_nav_manu">
+			<?php 
+				wp_nav_menu(array(
+					'theme_location' => 'main_menu',
+					'menu_id' => 'nav'
+					));
+			?>
+		</nav>
+		<!-- widgets -->
+		<div class="header_widgets">
+			<?php 
+				dynamic_sidebar('nav-menu-right');
+			?>
+		</div>
+		</section>
+		<!-- Main Header End -->
+	<?php
+}
+
+
+
+
+
+
+
+
+

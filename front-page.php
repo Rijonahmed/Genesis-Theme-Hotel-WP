@@ -1,17 +1,18 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 <?php
 
 // Template Name:Home
 get_header();
 ?>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-<!-- Main Header Start-->
+<!-- Main Header Start
 <section id="hotel_main_header_block">
-    <!-- logo -->
+    logo
     <div class="header_logo">
         <img src="./img-2/logo-1.png" alt="">
     </div>
-    <!-- menu -->
+    menu
     <nav class="header_nav_manu">
         <ul id="nav">
             <li><a href="#">Home</a></li>
@@ -28,7 +29,7 @@ get_header();
             <li><a href="#">Contact Us</a></li>
         </ul>
     </nav>
-    <!-- widgets -->
+    widgets
     <div class="header_widgets">
         <p>p: +8801402333467</p>
         <div class="icons">
@@ -40,7 +41,7 @@ get_header();
         <a href="#">Book Now</a>
     </div>
 </section>
-<!-- Main Header End -->
+Main Header End -->
 
 <!-- slider area start -->
 <section id="hero_slider_area">
@@ -76,54 +77,76 @@ get_header();
 <!-- Grand Hotel section start -->
 
 <section>
+    <?php
+ query_posts('post_type=page&post_status=publish&post_per_page=-1&order=ASC&paged='.get_query_var('post'));
+ if(have_posts()):
+   the_post();
+
+    $grand_hotel = rwmb_meta( 'grand_hotel' );
+    $heading = $grand_hotel[ 'heading' ] ?? '';
+    $title = $grand_hotel[ 'title' ] ?? '';
+    $description = $grand_hotel[ 'description' ] ?? '';
+
+    $image_id = $grand_hotel[ 'grand_hotel_bg' ] ?? 0;
+$image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full' ] );
+
+//$bg_url = $image['url'] ?? '';
+    
+    //var_dump( $grand_hotel );
+   
+
+
+    ?>
+    <h1><?php echo $title; ?></h1>
+    
     <div class="row m-0">
-
-
+    
         <div id="grand-hotel-bg-style" class="col-lg-4"
-            style="background-image: url('https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-2.jpg.webp'); background-repeat: no-repeat; background-size: cover;">
+            style="background-image: url('<?= $image['url']; ?>'); background-repeat: no-repeat; background-size: cover;">
 
             <div class="grand-hotel-contain">
-                <p>PERFECT STEY</p>
-                <h3>GRAND HOTEL</h3>
-                <i>Enjoy your stey</i>
+                <p><?php echo $title?></p>
+                <h3><?php echo $heading; ?></h3>
+                <i><?php echo $description ?></i>
+            </div>
+
+        </div>
+        <?php endif; ?>
+
+
+        <div class="my-4 multiple-items col-lg-8">
+            <div class="border-0 me-2">
+                <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp"
+                    class="card-img-top" alt="...">
+                <div class="card-body d-flex justify-content-between border-bottom border-4">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="fw-bold fs-2">&gt;</p>
+                </div>
+            </div>
+
+            <div class="border-0">
+                <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp"
+                    class="card-img-top" alt="...">
+                <div class="card-body d-flex justify-content-between border-bottom border-4">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="fw-bold fs-2">&gt;</p>
+                </div>
+            </div>
+
+            <div class="border-0">
+                <img class="w-100 h-100"
+                    src="https://marinerresort.com/wp-content/uploads/M-Exterior_104-Copy-1536x814.jpg.webp"
+                    class="card-img-top" alt="...">
+                <div class="card-body d-flex justify-content-between border-bottom border-4">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="fw-bold fs-2">&gt;</p>
+                </div>
             </div>
 
         </div>
 
-        
-
-            <div class="my-4 multiple-items col-lg-8">
-                <div class="border-0 me-2">
-                    <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp"
-                        class="card-img-top" alt="...">
-                    <div class="card-body d-flex justify-content-between border-bottom border-4">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="fw-bold fs-2">&gt;</p>
-                    </div>
-                </div>
-
-                <div class="border-0">
-                    <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp"
-                        class="card-img-top" alt="...">
-                    <div class="card-body d-flex justify-content-between border-bottom border-4">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="fw-bold fs-2">&gt;</p>
-                    </div>
-                </div>
-
-                <div class="border-0">
-                    <img class="w-100 h-100" src="https://marinerresort.com/wp-content/uploads/M-Exterior_104-Copy-1536x814.jpg.webp"
-                        class="card-img-top" alt="...">
-                    <div class="card-body d-flex justify-content-between border-bottom border-4">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="fw-bold fs-2">&gt;</p>
-                    </div>
-                </div>
-
-            </div>
 
 
-        
 
     </div>
 </section>
@@ -132,22 +155,22 @@ get_header();
 
 <!-- our room section start -->
 <section id="our-room-section" class="my-5">
-  <div class="text-center">
-    <p>Comfortable stay </p>
-    <h2>OUR ROOMS</h2>
-    <i>Style & Comfort</i>
+    <div class="text-center">
+        <p>Comfortable stay </p>
+        <h2>OUR ROOMS</h2>
+        <i>Style & Comfort</i>
 
-  </div>
-  <div class="container">
-    <div class="row">
-    <div class="col-lg-3">1</div>
-    <div class="col-lg-3">2</div>
-    <div class="col-lg-3">3</div>
-    <div class="col-lg-3">4</div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">1</div>
+            <div class="col-lg-3">2</div>
+            <div class="col-lg-3">3</div>
+            <div class="col-lg-3">4</div>
+        </div>
 
 
-  </div>
+    </div>
 </section>
 
 
@@ -200,13 +223,13 @@ $button = $package_block[ 'button' ] ?? '';
     <section id="gallery_block">
         <!-- gallery content block start-->
         <div class="gallery_content">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <span class="devider">
-                        <!-- devider -->
-                    </span>
-                    <?php 
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <span class="devider">
+                            <!-- devider -->
+                        </span>
+                        <?php 
             query_posts('post_type=page&post_status=publish&post_per_page=-1&order=ASC&paged='.get_query_var('post'));
             if(have_posts()):
               the_post();
@@ -215,20 +238,20 @@ $button = $package_block[ 'button' ] ?? '';
             $heading = $gallery_block[ 'heading' ] ?? '';
             $description = $gallery_block[ 'description' ] ?? '';
           ?>
-                    <p class="title">
-                        <?php echo $title ?>
-                    </p>
-                    <h2 class="heading">
-                        <?php echo $heading ?>
-                    </h2>
-                    <p class="description">
-                        <?php echo $description ?>
-                    </p>
-                    <?php endif; ?>
+                        <p class="title">
+                            <?php echo $title ?>
+                        </p>
+                        <h2 class="heading">
+                            <?php echo $heading ?>
+                        </h2>
+                        <p class="description">
+                            <?php echo $description ?>
+                        </p>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         <!-- Gallery content block end -->
         <!-- gallery image block start -->
         <section id="gallery_images">
@@ -311,9 +334,9 @@ $button = $package_block[ 'button' ] ?? '';
         </section>
     </section>
 
-<!-- event details end -->
+    <!-- event details end -->
 
-<!-- sister properties section start -->
+    <!-- sister properties section start -->
 
     <section class="py-5"
         style="background-image: url('https://thegrandhotel.com/wp-content/themes/themariner-pro/assets/img/resort-bg.png'); background-repeat: no-repeat; background-size: cover;">
@@ -324,17 +347,17 @@ $button = $package_block[ 'button' ] ?? '';
               the_post(); 
               
             
-$sister = rwmb_meta( 'sister' );
-$title = $sister[ 'title' ] ?? '';
-$heading = $sister[ 'heading' ] ?? '';
-$description = $sister[ 'description' ] ?? '';
- //echo var_dump($sister);
+                $sister = rwmb_meta( 'sister-propertise-section' );
+                $title = $sister[ 'title' ] ?? '';
+                $heading = $sister[ 'heading' ] ?? '';
+                $description = $sister[ 'description' ] ?? '';
+
 ?>
 
 
-            <p class="text-center"><?php echo $title ?> fgh</p>
-            <h1 class="text-center"><?php echo $heading ?> fdhf</h1>
-            <h1 class="text-center"><?php echo $description ?> fdhf</h1>
+            <p class="text-center"><?php echo $title ?></p>
+            <h1 class="text-center"><?php echo $heading ?></h1>
+            <h1 class="text-center"><?php echo $description ?></h1>
             <?php  endif; ?>
         </div>
 
