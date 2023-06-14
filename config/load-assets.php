@@ -136,6 +136,10 @@ wp_register_style( 'fontawesome', get_stylesheet_directory_uri().'/assets/css/fo
 	wp_enqueue_style('fontawesome');
 
 	// slick theme file
+wp_register_style( 'slick-theme-css', get_stylesheet_directory_uri().'/assets/css/slick-theme.css', array(), 'time', 'all' );
+wp_enqueue_style('slick-theme-css');
+
+	// slick theme file
 	wp_register_style( 'slick', get_stylesheet_directory_uri().'/assets/css/slick.css', array(), 'time', 'all' );
 	wp_enqueue_style('slick');
 

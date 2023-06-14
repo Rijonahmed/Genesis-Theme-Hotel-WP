@@ -42,3 +42,6 @@ require_once get_stylesheet_directory() . '/inc/all-custom-post.php';
 
 // Theme site-widget files 
 require_once get_stylesheet_directory() . '/inc/site-widget.php';
+
+// Theme customizer files 
+require_once get_stylesheet_directory() . '/inc/customizer.php';

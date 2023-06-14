@@ -3,12 +3,49 @@
     /**
      
   GALLERY SLIDER*/
-  $('.single-item').slick({
+  $('.hero_slider').slick({
     arrows: false,
     autoplay:true,
     loop: true,
     dots: true
   });
+
+  // $('.hero_slider').slick({
+  //   dots: true,
+  //   infinite: true,
+  //   fade:true,
+  //   speed: 300,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   // autoplay: true,
+  //   // autoplaySpeed: 2000,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //         infinite: true,
+  //         dots: true
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1
+  //       }
+  //     }
+  //   ]
+  // });
+
 // welcome to fution section 
   $('.multiple-items').slick({
     arrows: false,

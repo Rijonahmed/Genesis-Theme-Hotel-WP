@@ -102,7 +102,8 @@ function hotel_customize_before_header(){
 }
 
 
-
+// Footer
+remove_action('genesis_footer', 'genesis_do_footer');
 // footer
 add_action('genesis_footer' , 'hotel_custom_footer');
 function hotel_custom_footer(){

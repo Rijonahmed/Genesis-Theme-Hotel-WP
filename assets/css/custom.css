@@ -15,28 +15,6 @@
   
 }
 
-/* top header
-.top-header{
-  display: flex;
-  justify-content: space-between;
-  background-color: #70b5d9;
-  color: #ffff;
-  align-items: center;
-}
-.top-menu ul{
-  display: flex;
-  
-}
-.top-menu ul li {
-  list-style: none;
-  
-
-  margin: 0 10px;
-}
-.top-menu ul li a{
-text-decoration: none;
-color: #fff;
-} */
 
 #hotel_before_header_block {
   padding: 7px 0;
@@ -213,7 +191,114 @@ color: #fff;
 /*=======================================
 slider Area Style
 ========================================*/
-.single-slider {
+
+#hero_slider_area .hero_slider .element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero_slider_area .hero_slider .element .hero_single_slider {
+  width: 100%;
+  height: 700px;
+  position: relative;
+}
+
+#hero_slider_area .hero_slider .element .hero_single_slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#hero_slider_area .hero_slider .element .hero_single_slider .slider_details {
+  bottom: 15%;
+  left: 50%;
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%);
+  padding: 30px 30px 30px 30px ;
+  border-left: 2px solid #78a6bb;
+  border-right: 2px solid #78a6bb;
+  border-bottom: 2px solid #78a6bb;
+}
+#hero_slider_area .hero_slider .element .hero_single_slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#hero_slider_area .hero_slider .element .hero_single_slider .slider_details h2 {
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+}
+#hero_slider_area .hero_slider .element .hero_single_slider .slider_details h2::after,
+#hero_slider_area .hero_slider .element .hero_single_slider .slider_details h2::before{
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 30%;
+  top: 0;
+  right: -32px;
+  background: #78a6bb;
+  margin-top: -30px;
+}
+#hero_slider_area .hero_slider .element .hero_single_slider .slider_details h2::before{
+  left: -32px;
+}
+#hero_slider_area .hero_slider .element .hero_single_slider .slider_details p {
+  font-size: 16px;
+  font-weight: 400;
+}
+#hero_slider_area .hero_slider .element .hero_single_slider .slider_details a {
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  display: inline-block;
+  border: 1px solid #fbad27;
+  background-color: #fbad27;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
+#hero_slider_area .hero_slider .slick-dots {
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  top: 50%;
+  left: -48%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#hero_slider_area #slick-slide-control00::before,
+#hero_slider_area #slick-slide-control01::before,
+#hero_slider_area #slick-slide-control02::before,
+#hero_slider_area #slick-slide-control03::before,
+#hero_slider_area #slick-slide-control04::before,
+#hero_slider_area #slick-slide-control05::before {
+  font-size: 30px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  color: transparent;
+}
+
+/* .single-slider {
   background-size: cover;
   background-position: center;
   position: relative;
@@ -307,7 +392,7 @@ slider Area Style
 #slider-section .slick-dots li.slick-active button {
   background-color: #000000;
  
-}
+} */
  /* .slick-slide {
   height: 100vh;
 } */
@@ -315,7 +400,7 @@ slider Area Style
 /*=======================================
   welcome to fusion style
 ========================================*/
-.slick-arrow {
+/* .slick-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -333,7 +418,7 @@ slider Area Style
 }
 .slick-next {
   right: 20px;
-}
+} */
 
 
 
@@ -481,12 +566,20 @@ slider Area Style
   /* package section style  start*/
 
   #package-card{
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.849);
+  }
+  #package-card h5{
+    color: #9bc8df;
+    font-weight: bold;
+    font-size: 28px;
+    text-transform: uppercase;
+    
   }
   #package-card-img{
     position: relative;
     
   }
+
   .package-card-img-smail{
     position: absolute;
     top: -3rem;
@@ -500,7 +593,7 @@ slider Area Style
   }
 
 
-
+/* grand-hotel style start */
   #grand-hotel-bg-style{
     background-color: rgba(29, 6, 243,);
     z-index: 1;
@@ -536,39 +629,20 @@ color: #f8f8f8;
     background-color: rgb(255, 255, 255);
     content: '';
   }
+  /* grand-hotel style end */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  /* our-room-section-start */
+#our-room-section{
+  background-image: url('https://marinerresort.com/wp-content/themes/themariner-pro/assets/img/room-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   
+
+}
+
+
+  /* our-room-section-end */
+
 
   /* gallery */
 #gallery_block {

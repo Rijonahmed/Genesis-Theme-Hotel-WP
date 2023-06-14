@@ -37,5 +37,8 @@ function genesis_sample_secondary_menu_args( $args ) {
 
 }
 
-// Footer
-remove_action('genesis_footer', 'genesis_do_footer');
+
+
+
+
+
