@@ -90,14 +90,19 @@ Main Header End -->
     $image_id = $grand_hotel[ 'grand_hotel_bg' ] ?? 0;
 $image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full' ] );
 
+//grand_hotel_details
+$grand_hotel_details = $grand_hotel[ 'grand_hotel_details' ] ?? '';
+
+
+
 //$bg_url = $image['url'] ?? '';
     
-    //var_dump( $grand_hotel );
-   
+    //var_dump( $grand_hotel_details );
+
 
 
     ?>
-    <h1><?php echo $title; ?></h1>
+    
     
     <div class="row m-0">
     
@@ -111,43 +116,34 @@ $image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full' ] );
             </div>
 
         </div>
-        <?php endif; ?>
+      
 
 
         <div class="my-4 multiple-items col-lg-8">
+
+        <?php
+        foreach ( $grand_hotel_details as $grand_hotel_detail ) {
+
+            // Field title:
+	$detail_title = $grand_hotel_detail[ 'title' ] ?? '';
+	
+	// Field grand_hotel_area_bg:
+	$image_id = $grand_hotel_detail[ 'grand_hotel_area_bg' ] ?? 0;
+	$detail_image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full' ] );
+            ?>
+
             <div class="border-0 me-2">
-                <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp"
+                <img src="<?= $detail_image['url']; ?>"
                     class="card-img-top" alt="...">
                 <div class="card-body d-flex justify-content-between border-bottom border-4">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title"><?php echo $detail_title;?></h5>
                     <p class="fw-bold fs-2">&gt;</p>
                 </div>
             </div>
-
-            <div class="border-0">
-                <img src="https://thegrandhotel.com/wp-content/uploads/2023/03/resort-img-3.jpg.webp"
-                    class="card-img-top" alt="...">
-                <div class="card-body d-flex justify-content-between border-bottom border-4">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="fw-bold fs-2">&gt;</p>
-                </div>
-            </div>
-
-            <div class="border-0">
-                <img class="w-100 h-100"
-                    src="https://marinerresort.com/wp-content/uploads/M-Exterior_104-Copy-1536x814.jpg.webp"
-                    class="card-img-top" alt="...">
-                <div class="card-body d-flex justify-content-between border-bottom border-4">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="fw-bold fs-2">&gt;</p>
-                </div>
-            </div>
-
+            <?php
+        }
+        endif; ?>
         </div>
-
-
-
-
     </div>
 </section>
 
@@ -178,8 +174,11 @@ $image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full' ] );
 
 
 <!-- package section start -->
+<?php $package_bg = rwmb_meta( 'package-bg', [ 'size' => 'full' ] ); 
+
+?>
 <section class="py-3 "
-    style="background-image: url('https://thegrandhotel.com/wp-content/themes/themariner-pro/assets/img/pkg-bg.jpg'); background-repeat: no-repeat; background-size: cover;">
+    style="background-image: url('<?= $package_bg['url']; ?>'); background-repeat: no-repeat; background-size: cover;">
     <div class="d-flex gap-4 justify-content-center my-5">
 
         <?php
@@ -222,7 +221,7 @@ $button = $package_block[ 'button' ] ?? '';
 
     <section id="gallery_block">
         <!-- gallery content block start-->
-        <div class="gallery_content">
+        <div id="gallery_content">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
@@ -237,6 +236,13 @@ $button = $package_block[ 'button' ] ?? '';
             $title = $gallery_block[ 'title' ] ?? '';
             $heading = $gallery_block[ 'heading' ] ?? '';
             $description = $gallery_block[ 'description' ] ?? '';
+            $gallery_images = $gallery_block[ 'gallery_images' ] ?? [];
+            $first_four_imgs = array_slice($gallery_images,0,4);
+            $last_two_imgs = array_slice($gallery_images,-2,2);
+
+            //var_dump($last_two_imgs);
+        
+            //var_dump($gallery_images);
           ?>
                         <p class="title">
                             <?php echo $title ?>
@@ -247,7 +253,7 @@ $button = $package_block[ 'button' ] ?? '';
                         <p class="description">
                             <?php echo $description ?>
                         </p>
-                        <?php endif; ?>
+                       
                     </div>
                 </div>
             </div>
@@ -257,18 +263,17 @@ $button = $package_block[ 'button' ] ?? '';
         <section id="gallery_images">
             <div class="container">
                 <div class="row">
-                    <?php
-          query_posts('post_type=gallery&post_status=publish&post_per_page=4&order=ASC&paged='.get_query_var('post'));
-            if(have_posts()) :
-              while(have_posts()) :
-                the_post();
-        ?>
+                <?php foreach ( $first_four_imgs as $image_id ) : ?>
+		<?php $image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full'] ); ?>
+          
+
                     <div class="col-md-3">
                         <a href="#">
-                            <?php the_post_thumbnail(); ?>
+                            <img src="<?= $image['url']; ?>" alt="">
+                           
                         </a>
                     </div>
-                    <?php endwhile; endif; ?>
+                    <?php endforeach ?>
                 </div>
             </div>
         </section>
@@ -283,21 +288,20 @@ $button = $package_block[ 'button' ] ?? '';
         <section id="event_gallery">
             <div class="container">
                 <div class="row">
-                    <?php
-          query_posts('post_type=event&post_status=publish&post_per_page=4&order=ASC&paged='.get_query_var('post'));
-            if(have_posts()) :
-              while(have_posts()) :
-                the_post();
-        ?>
-                    <div class="col-md-6">
+                <?php foreach ( $last_two_imgs as $image_id ) : ?>
+		<?php $image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full'] ); ?>
+
+                    <div class="col-md-6 ">
                         <a href="#">
-                            <?php the_post_thumbnail(); ?>
+                            <img class="h-75" src="<?= $image['url']; ?>" alt="img">
                         </a>
                     </div>
-                    <?php endwhile;endif; ?>
+                    <?php endforeach ?>
+                    
                 </div>
             </div>
         </section>
+        <?php endif; ?>
         <!-- event gallery end -->
 
         <!-- event details start -->
@@ -337,11 +341,7 @@ $button = $package_block[ 'button' ] ?? '';
     <!-- event details end -->
 
     <!-- sister properties section start -->
-
-    <section class="py-5"
-        style="background-image: url('https://thegrandhotel.com/wp-content/themes/themariner-pro/assets/img/resort-bg.png'); background-repeat: no-repeat; background-size: cover;">
-        <div class="my-5">
-            <?php
+<?php
             query_posts('post_type=page&post_status=publish&post_per_page=-1&order=ASC&paged='.get_query_var('post'));
             if(have_posts()):
               the_post(); 
@@ -351,13 +351,18 @@ $button = $package_block[ 'button' ] ?? '';
                 $title = $sister[ 'title' ] ?? '';
                 $heading = $sister[ 'heading' ] ?? '';
                 $description = $sister[ 'description' ] ?? '';
+                $image_id = $sister[ 'sister-propertise-bg' ] ?? 0;
+                $bg_image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full' ] );
+                
 
 ?>
 
-
+    <section class="pb-5"
+        style="background-image: url('<?= $bg_image['url']; ?>'); background-repeat: no-repeat; background-size: cover;">
+        <div class="my-5">
             <p class="text-center"><?php echo $title ?></p>
             <h1 class="text-center"><?php echo $heading ?></h1>
-            <h1 class="text-center"><?php echo $description ?></h1>
+            <h4 class="text-center fst-italic"><?php echo $description ?></h4>
             <?php  endif; ?>
         </div>
 
