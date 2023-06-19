@@ -39,8 +39,8 @@
 #hotel_before_header_block .before_header_widget_right a {
   margin: 0 7px;
   color: #fff;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
   text-decoration: none;
   text-transform: capitalize;
 }
@@ -75,34 +75,36 @@
   list-style: none;
 }
 #hotel_main_header_block .header_nav_manu ul li {
-  margin: 0 5px;
+  margin: 0 2px;
   position: relative;
 }
 #hotel_main_header_block .header_nav_manu ul li a {
-  padding: 8px 8px;
+  padding: 4px 8px;
   text-decoration: none;
   color: #000;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   position: relative;
   text-transform: uppercase;
 }
 #hotel_main_header_block .header_nav_manu ul li a:hover {
-  color: #426c4f;
+  color: #3aa3f8;
   transition: 0.3s;
 }
 #hotel_main_header_block .header_nav_manu ul li a::before {
+  content: "" !important;
+  width: 0%;
+  height: 1px !important;
+  background: #3aa3f8;
   position: absolute;
-  content: "";
-  left: 0;
-  bottom: 5px;
-  width: 0;
-  height: 1px;
-  color: #426c4f;
+  bottom: -5px;
+  transition: 0.3s all;
+  left: 50%;
+  right: -50%;
+  transform: translate(-50%, +50%);
 }
 #hotel_main_header_block .header_nav_manu ul li a:hover::before {
-  right: 100%;
-  width: 100%;
+  width: 40%;
 }
 #hotel_main_header_block .header_nav_manu ul li ul {
   display: flex;
@@ -119,10 +121,10 @@
   padding: 10px 40px;
   text-decoration: none;
   color: #000;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 400;
   position: relative;
-  margin-left: -10px;
+  
 }
 #hotel_main_header_block .header_nav_manu ul li ul li a:hover {
   color: #426c4f;
@@ -175,6 +177,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  border: 1px solid #7e6f5d;
 }
 #hotel_main_header_block .header_widgets a {
   color: #fff;
@@ -182,9 +186,48 @@
   background: linear-gradient(to right, #b4afa9, #7e6f5d);
   font-size: 16px;
   font-weight: 500;
-  padding: 10px 15px;
   border-radius: 4px;
+  padding: 8px 10px;
 } 
+
+#hotel_main_header_block .header_widgets .icons i:hover {
+  color: #7c6d5a;
+  background: transparent;
+  transition: 0.3s all;
+}
+
+
+
+/* responsive menu  */
+@media only screen and (max-width: 600px) {
+ 
+
+  #hotel_main_header_block .header_logo img {
+    max-width: 130px;
+    height: 70px;
+   
+  }
+  #hotel_main_header_block .header_nav_manu ul {
+   
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+  }
+  #hotel_main_header_block .header_nav_manu ul li{
+    margin: 5px 0;
+  }
+  #hotel_main_header_block .header_widgets {
+    display: flex;
+    flex-direction: column;
+   margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+
 
 
 
@@ -624,7 +667,7 @@ left: 50%;
 top: 50%;
 transform: translate(-50%,-50%);
 text-align: center;
-color: #f8f8f8;
+color: #ffffff;
   }
   .grand-hotel-contain::before{
     position: absolute;
@@ -640,12 +683,53 @@ color: #f8f8f8;
 
   /* our-room-section-start */
 #our-room-section{
-  background-image: url('https://marinerresort.com/wp-content/themes/themariner-pro/assets/img/room-bg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+
+  
   
 
 }
+#our-room-section.our-room-contain::before{
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: -10px;
+  height: 3px;
+  width: 30px;
+  background-color: rgb(255, 255, 255);
+  content: '';
+}
+#our-room-section .our-room-card img{
+  
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.view-all-button{
+  height: 120px;
+  width: 120px;
+  padding: 10px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #b4afa9, #7e6f5d);
+  display: flex;
+align-items: center;
+margin-top: 50%;
+}
+.view-all-button:hover{
+background: #777776;
+cursor: pointer;
+}
+.view-all-button a{
+  text-align: center;
+  margin: auto;
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  text-decoration: none;
+
+}
+
+
 
 
   /* our-room-section-end */
@@ -682,22 +766,58 @@ color: #f8f8f8;
   letter-spacing: -2.5px;
   font-style: italic;
 }
-#gallery_block #gallery_images .col-md-3 {
-  width: 25%;
+#gallery_block #gallery_images .col-md-6 {
+  
   height: 300px;
   overflow: hidden;
+  position: relative;
 }
-#gallery_block #gallery_images .col-md-3 img {
+#gallery_block #gallery_images .col-sm-6 {
+margin: 10px 0;
+
+}
+#gallery_block #gallery_images .col-md-6 .gallery-imgs {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  transition: 0.4s;
-  overflow: hidden;
+  transition: all .3s ease-in-out;
+ 
+  
 }
-#gallery_block #gallery_images .col-md-3 img:hover {
-  transform: scale(1.1) rotate(2deg);
+#gallery_block #gallery_images .col-md-6 .gallery-imgs:hover {
+  transform: rotate(2deg) scale(1.1);
+  cursor: pointer;
+  
 }
+
+#gallery_block #gallery_images .col-md-6 a img{
+position: absolute;
+bottom: 0;
+width: 25px;
+margin: 7px;
+z-index: 9999;
+cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #event_block {
   padding-top: 20px;
@@ -767,3 +887,97 @@ color: #f8f8f8;
 
   
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Package Block */
+#package_block {
+  padding: 100px 0;
+  background-image: url(../img-2/pkg-bg.jpg);
+}
+#package_block .row {
+  /* padding: 0 100px; */
+}
+#package_block .content {
+  padding: 20px;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 35px;
+  background-color: rgba(255, 255, 255, 0.86);
+  border: 10px solid #fff;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+
+#package_block .content .icon{
+position: absolute;
+left: 40%;
+top: -10%;
+transform: translateX(-50%);
+width: 80px;
+}
+#package_block .content .package_thumb_image {
+  height: 350px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+#package_block .content .thumb_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#package_block .content h2{
+font-weight: 700;
+text-transform: uppercase;
+color: #9bc8df;
+font-size: 24px;
+margin-bottom: 15px;
+}
+#package_block .content p{
+  font: 24px !important;
+}
+
+#package_block .content a.button {
+  padding: 5px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #998f83;
+  border: 2px solid #998f83;
+  padding: 10px 20px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+#package_block .content a.button:hover {
+  color: #998f83;
+  background-color: transparent;
+  border: 1px solid #998f83;
+  transition: 0.3s all;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+
+}

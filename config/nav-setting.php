@@ -59,39 +59,45 @@ register_nav_menu(
 add_action('genesis_header','hotel_customize_main_header');
 function hotel_customize_main_header(){
 	?>
-		<!-- Main Header Start-->
-		<section id="hotel_main_header_block">
-		<!-- logo -->
-		<div class="header_logo">
-			<a href="<?php echo home_url(); ?>">
-				<img src="<?php echo get_theme_mod('hotel_header_logo_setting'); ?>" alt="">
-			</a>
-		</div>
-		<!-- menu -->
-		<nav class="header_nav_manu">
-			<?php 
+<nav class="navbar navbar-expand-lg sticky-lg-top">
+    <div id="hotel_main_header_block" class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+		<div class="header_logo navbar-brand">
+                <a href="<?php echo home_url(); ?>">
+                    <img src="<?php echo get_theme_mod('hotel_header_logo_setting'); 
+				
+				?>" alt="">
+                </a>
+            </div>
+        <div  class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+            
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <nav class="header_nav_manu">
+                    <?php 
 				wp_nav_menu(array(
 					'theme_location' => 'main_menu',
 					'menu_id' => 'nav'
 					));
 			?>
-		</nav>
-		<!-- widgets -->
-		<div class="header_widgets">
-			<?php 
-				dynamic_sidebar('nav-menu-right');
+                </nav>
+            </ul>
+            <div class="header_widgets">
+                <?php 
+				
+			 dynamic_sidebar('nav-menu-right');
+			
+
+				
 			?>
-		</div>
-		</section>
-		<!-- Main Header End -->
-	<?php
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<?php
 }
-
-
-
-
-
-
-
-
-

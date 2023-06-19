@@ -54,6 +54,14 @@
     slidesToScroll: 1
   });
 
+  $('.multiple-items-package').slick({
+    infinite: true,
+    arrows: false,
+   
+    slidesToShow: 1,
+    slidesToScroll: 1
+  });
+
 
   // filter able portfolio script
   $('.grid').isotope({
