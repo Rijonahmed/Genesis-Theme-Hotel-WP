@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Hotel.
@@ -42,16 +43,9 @@ function genesis_sample_secondary_menu_args( $args ) {
 
 
 
-
-
-
 register_nav_menu(
 	'main_menu' , __('Main Menu' , 'rijon'),
 );
-
-
-
-
 
 
 
@@ -59,7 +53,7 @@ register_nav_menu(
 add_action('genesis_header','hotel_customize_main_header');
 function hotel_customize_main_header(){
 	?>
-<nav class="navbar navbar-expand-lg sticky-lg-top">
+<nav class="navbar navbar-expand-lg">
     <div id="hotel_main_header_block" class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">

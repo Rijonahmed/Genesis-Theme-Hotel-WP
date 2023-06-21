@@ -15,7 +15,6 @@ get_header();
                 while(have_posts()) :
                     the_post();
         ?>
-
         <div class="element">
             <div class="hero_single_slider">
                 <?php the_post_thumbnail('hero-slider');?>
@@ -37,127 +36,134 @@ get_header();
 </section>
 <!-- slider area end -->
 
+
+
+<section style="background-image: url('https://i.ibb.co/1dQyTvy/room-bg.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+
 <!-- Grand Hotel section start -->
-<section
-    style="background-image: url('https://marinerresort.com/wp-content/themes/themariner-pro/assets/img/room-bg.jpg'); background-repeat: no-repeat; background-size: cover;">
     <section>
-        <?php
+    <?php
  query_posts('post_type=page&post_status=publish&post_per_page=-1&order=ASC&paged='.get_query_var('post'));
- if(have_posts()):
-   the_post();
+            if(have_posts()):
+                the_post();
 
     $grand_hotel = rwmb_meta( 'grand_hotel' );
     $heading = $grand_hotel[ 'heading' ] ?? '';
     $title = $grand_hotel[ 'title' ] ?? '';
     $description = $grand_hotel[ 'description' ] ?? '';
-
     $image_id = $grand_hotel[ 'grand_hotel_bg' ] ?? 0;
     $image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full' ] );
-
-
     //grand_hotel_details
     $grand_hotel_details = $grand_hotel[ 'grand_hotel_details' ] ?? '';
-
-
-
-
     ?>
+    <div class="row m-0">
 
+        <div id="grand-hotel-bg-style" class="col-xl-4"
+           >
+            <img src="<?= $image['url']; ?>" alt="">
+            <div class="grand-hotel-contain">
+                <p><?php echo $title?></p>
+                <h3><?php echo $heading; ?></h3>
+                <p><i><?php echo $description ?></i></p>
 
-        <div class="row m-0">
-
-            <div id="grand-hotel-bg-style" class="col-lg-4"
-                style="background-image: url('<?= $image['url']; ?>'); background-repeat: no-repeat; background-size: cover;">
-
-                <div class="grand-hotel-contain">
-                    <p><?php echo $title?></p>
-                    <h3><?php echo $heading; ?></h3>
-                    <i><?php echo $description ?></i>
-                </div>
-
-            </div>
-
-
-
-            <div class="my-4 multiple-items col-lg-8">
-
-                <?php
-        foreach ( $grand_hotel_details as $grand_hotel_detail ) {
-
-            // Field title:
-	$detail_title = $grand_hotel_detail[ 'title' ] ?? '';
-	
-	// Field grand_hotel_area_bg:
-	$image_id = $grand_hotel_detail[ 'grand_hotel_area_bg' ] ?? 0;
-	$detail_image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full' ] );
-            ?>
-
-                <div class="border-0 me-2">
-                    <img src="<?= $detail_image['url']; ?>" class="card-img-top" alt="...">
-                    <div class="card-body d-flex justify-content-between border-bottom border-4">
-                        <h5 class="card-title"><?php echo $detail_title;?></h5>
-                        <p class="fw-bold fs-2">&gt;</p>
-                    </div>
-                </div>
-                <?php
-        }
-        endif; ?>
             </div>
         </div>
+        <?php endif; ?>
+        <div class="col-xl-8">
+            <div class="row">
+                <?php
+        query_posts('post_type=grand-hotel&post_status=publish&post_per_page=2&order=ASC&paged='.get_query_var('post'));
+        if(have_posts()) :
+            while(have_posts()) :
+                the_post();
+                        ?>
+
+                <div id="grand-hotel-details" class="col-xl-6">
+                   <div>
+                   <img src="<?php echo get_the_post_thumbnail_url(); ?>"  alt="...">
+                    <div class="d-flex justify-content-between align-items-center border-4 border-bottom">
+                        <h5 class="card-title"><?php the_title(); ?></h5>
+                        <p class="fw-bold fs-2">&gt;</p>
+                    </div>
+                   </div>
+                </div>
+
+                <?php endwhile; endif; ?>
+
+            </div>
+        </div>
+    </div>
+
     </section>
-
-    <!-- Grand Hotel section end -->
-
+<!-- Grand Hotel section end -->
 
 
-    <!-- our room section start -->
+<!-- our room section start -->
+
     <section id="our-room-section" class="my-5">
-        <div class="text-center mb-5 our-room-contain">
-            <p>Comfortable stay </p>
-            <h2>OUR ROOMS</h2>
-            <i>Style & Comfort</i>
+    <div class="text-center mb-5 our-room-contain">
+        <p>Comfortable stay </p>
+        <h2>OUR ROOMS</h2>
+        <i>Style & Comfort</i>
 
-        </div>
-        <div class="row container">
+    </div>
+    <div class="row container-fluid">
 
-            <div class="col-lg-11 row our-room-section-cards card-group gap-5 border-0">
-
-
-
-                <div class="card border-0 col-lg-4 our-room-section-card">
-                    <img src="http://rijon.local/wp-content/uploads/2023/06/resort-img-1.png.webp" class="our-room-img" alt="...">
+        <div class="col-lg-10">
+            <div class="row our-room-section-cards card-group border-0">
+                <?php
+        query_posts('post_type=rooms-types&post_status=publish&post_per_page=2&order=ASC&paged='.get_query_var('post'));
+        if(have_posts()) :
+            while(have_posts()) :
+                the_post();
+                    ?>
+                <div class="border-0 col-lg-4 our-room-section-card">
+                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="our-room-img" alt="...">
                     <div class="card-body d-flex justify-content-between align-items-center">
-                        <h5 class="card-title">hello</h5>
-                        <p class="fw-bold fs-2">&gt;</p>
+                        <h5 class="card-title"><?php the_title(); ?></h5>
+                        <p class="fw-bold fs-2"><i class="fa-solid fa-chevron-right"></i></p>
 
 
                     </div>
                 </div>
 
-
-
-
-            </div>
-            <div class="col-lg-1">
-                <div class="view-all-button"><a href="">&gt; <br> View <br> all</a></div>
+                <?php endwhile; endif; ?>
 
             </div>
         </div>
+        <div class="col-lg-2 d-flex align-items-center justify-content-center">
+            <div class="view-all-button"><a href="">&gt; <br> View <br> all</a></div>
+
+        </div>
+    </div>
+
     </section>
+<!-- our room section end -->
+
+
 
 </section>
 
 
-<!-- our room section end -->
+
 
 
 <!-- package section start -->
-<?php $package_bg = rwmb_meta( 'package-bg', [ 'size' => 'full' ] ); 
+
+
+<?php
+ query_posts('post_type=page&post_status=publish&post_per_page=-1&order=ASC&paged='.get_query_var('post'));
+            if(have_posts()):
+                the_post();
+
+ $package_bg = rwmb_meta( 'package-bg', [ 'size' => 'full' ] ); 
 
 ?>
 <section class="py-3 "
     style="background-image: url('<?= $package_bg['url']; ?>'); background-repeat: no-repeat; background-size: cover;">
-    <div class="d-flex gap-4 justify-content-center my-5">
+    <?php endif; ?>
+    <div class="d-flex flex-lg-row flex-sm-column gap-4 justify-content-center my-5">
 
         <?php
     query_posts('post_type=package&post_status=publish&post_per_page=3&order=ASC&paged='.get_query_var       ('post'));
@@ -168,10 +174,10 @@ get_header();
 
             $package_block = rwmb_meta( 'package_block' );
             $icons = $package_block[ 'icon' ] ?? 0;
-$icon = RWMB_Image_Field::file_info( $icons, [ 'size' => 'thumbnail' ] );
+            $icon = RWMB_Image_Field::file_info( $icons, [ 'size' => 'thumbnail' ] );
 
-$button = $package_block[ 'button' ] ?? '';
-    ?>
+            $button = $package_block[ 'button' ] ?? '';
+            ?>
 
 
         <div id="package-card" class="card" style="width: 30rem;">
@@ -193,9 +199,9 @@ $button = $package_block[ 'button' ] ?? '';
 <!-- package section end -->
 
 
+
 <!-- gallery start -->
-<section
-    style="background-image: url('https://i.ibb.co/VLq8BLt/instagram-bg.png'); background-repeat: no-repeat; background-size: cover;">
+
 
     <section id="gallery_block">
         <!-- gallery content block start-->
@@ -225,7 +231,7 @@ $button = $package_block[ 'button' ] ?? '';
             //var_dump($last_two_imgs);
         
             //var_dump($gallery_images);
-          ?>
+                        ?>
 
                         <p class="title">
                             <?php echo $title ?>
@@ -308,7 +314,7 @@ $button = $package_block[ 'button' ] ?? '';
           $heading = $event_block[ 'heading' ] ?? '';
           $description = $event_block[ 'description' ] ?? '';
           $button = $event_block[ 'button' ] ?? '';
-        ?>
+                        ?>
                     <div class="col-md-3">
                         <h2 class="heading">
                             <?php echo $heading; ?>
@@ -329,16 +335,15 @@ $button = $package_block[ 'button' ] ?? '';
             </div>
         </section>
     </section>
-
     <!-- event details end -->
 
+
     <!-- sister properties section start -->
-    <?php
+    <section>
+        <?php
             query_posts('post_type=page&post_status=publish&post_per_page=-1&order=ASC&paged='.get_query_var('post'));
             if(have_posts()):
               the_post(); 
-              
-            
                 $sister = rwmb_meta( 'sister-propertise-section' );
                 $title = $sister[ 'title' ] ?? '';
                 $heading = $sister[ 'heading' ] ?? '';
@@ -347,44 +352,41 @@ $button = $package_block[ 'button' ] ?? '';
                 $bg_image = RWMB_Image_Field::file_info( $image_id, [ 'size' => 'full' ] );
                 
 
-?>
+                        ?>
 
-    <section class="pb-5"
-        style="background-image: url('<?= $bg_image['url']; ?>'); background-repeat: no-repeat; background-size: cover;">
-        <div class="my-5">
-            <p class="text-center"><?php echo $title ?></p>
-            <h1 class="text-center"><?php echo $heading ?></h1>
-            <h4 class="text-center fst-italic"><?php echo $description ?></h4>
-            <?php  endif; ?>
-        </div>
-
-        <div class="card-group gap-3 container">
-
-            <?php
-    query_posts('post_type=Sister&post_status=publish&post_per_page=3&order=ASC&paged='.get_query_var       ('post'));
-    if(have_posts()) :
-        while(have_posts()) :
-            the_post();
-
-
-            $sister_propertise_button = rwmb_meta( 'button' ?? '' );
-
-    ?>
-
-
-            <div id="sister-card" class="card border border-2 shadow" style="width: 23rem;">
-                <img src="<?php echo get_the_post_thumbnail_url(); ?>" class=" m-4" alt="...">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-primary"><?php the_title();?></h5>
-                    <p class="card-text"><?php the_content(); ?></p>
-                    <a href="#" class="btn btn-outline-secondary"><?php echo $sister_propertise_button ?></a>
-                </div>
+        <section class="pb-5"
+            style="background-image: url('<?= $bg_image['url']; ?>'); background-repeat: no-repeat; background-size: cover;">
+            <div class="my-5">
+                <p class="text-center"><?php echo $title ?></p>
+                <h1 class="text-center"><?php echo $heading ?></h1>
+                <h4 class="text-center fst-italic"><?php echo $description ?></h4>
+                <?php  endif; ?>
             </div>
 
-            <?php 
-  endwhile; endif;
-  ?>
-        </div>
+            <div class="card-group gap-3 container">
+
+                <?php
+            query_posts('post_type=Sister&post_status=publish&post_per_page=3&order=ASC&paged='.get_query_var       ('post'));
+                if(have_posts()) :
+                    while(have_posts()) :
+                        the_post();
+            $sister_propertise_button = rwmb_meta( 'button' ?? '' );
+                    ?>
+
+
+                <div id="sister-card" class="card border border-2 shadow" style="width: 23rem;">
+                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" class=" m-4" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary"><?php the_title();?></h5>
+                        <p class="card-text"><?php the_content(); ?></p>
+                        <a href="#" class="btn btn-outline-secondary"><?php echo $sister_propertise_button ?></a>
+                    </div>
+                </div>
+
+                <?php endwhile; endif;?>
+            </div>
+
+        </section>
 
     </section>
     <!-- sister properties section end -->
@@ -403,12 +405,11 @@ $button = $package_block[ 'button' ] ?? '';
 
 
 
-
     <!-- Packages Start -->
     <section id="package_block">
         <div class="container">
-            <div class="row ">
-              
+            <div class="row responsive">
+
 
                 <?php
         query_posts('post_type=package&post_status=publish&post_per_page=2&order=ASC&paged='.get_query_var('post'));
@@ -417,10 +418,10 @@ $button = $package_block[ 'button' ] ?? '';
                 the_post();
                 $package_block = rwmb_meta( 'package_block' );
                 $icons = $package_block[ 'icon' ] ?? 0;
-    $icon = RWMB_Image_Field::file_info( $icons, [ 'size' => 'thumbnail' ] );
+                $icon = RWMB_Image_Field::file_info( $icons, [ 'size' => 'thumbnail' ] );
     
-    $button = $package_block[ 'button' ] ?? '';
-      ?>
+                $button = $package_block[ 'button' ] ?? '';
+                            ?>
                 <div id="package-card-slide" class="col-md-6 col-sm-1">
                     <div class="content">
                         <div class="icon">
@@ -446,7 +447,7 @@ $button = $package_block[ 'button' ] ?? '';
             </div>
         </div>
 
-        
+
     </section>
     <!-- Packages End -->
 

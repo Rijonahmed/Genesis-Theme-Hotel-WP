@@ -7,7 +7,7 @@
 .hotel-grediant-button{
   text-decoration: none;
  
-  padding: 10px 4rem;
+  padding: 10px 20px;
     background: linear-gradient(to right, #b4afa9, #7e6f5d);
     color: #fff;
     font-weight: bold;
@@ -60,6 +60,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 15px 10px;
+  flex-direction: row;
 }
 #hotel_main_header_block .header_logo {
   width: 150;
@@ -199,9 +200,9 @@
 
 
 /* responsive menu  */
-@media only screen and (max-width: 600px) {
- 
 
+
+@media only screen and (max-width: 600px) {
   #hotel_main_header_block .header_logo img {
     max-width: 130px;
     height: 70px;
@@ -223,6 +224,10 @@
    margin-bottom: 10px;
     align-items: center;
     justify-content: center;
+  }
+  #hotel_main_header_block {
+ 
+    flex-direction: row-reverse;
   }
 
 }
@@ -565,7 +570,7 @@ slider Area Style
   text-align: center;
   }
   #p-single-content.single-content {
-  width:33%;
+  width:50%;
   
   }
   #p-single-content.single-content img {
@@ -580,6 +585,7 @@ slider Area Style
   #p-filters.filters {
   width: 100%;
   text-align: center;
+  background-color: #7c6d5a;
   }
   
   #p-filters ul {
@@ -591,7 +597,7 @@ slider Area Style
   display: inline;
   padding: 10px 25px;
   font-size: 14px;
-  color: #636363;
+  color: #c4c2c2;
   font-weight: 400;
   cursor: pointer;
     text-transform: uppercase;
@@ -599,14 +605,13 @@ slider Area Style
   }
   
   #p-filters li:hover {
-  color: #a6a6a6;
+  color: #ffffff;
   }
   
   #p-filters li.active {
   color: #f0f0f0;
-  border: 1px solid #050505;
-  background-color: #0f0f0f;
-  border-radius: 5px;
+border-bottom: 2px solid rgb(35, 120, 248);
+ 
  font-weight: bold;
   }
   
@@ -617,6 +622,7 @@ slider Area Style
 
   #package-card{
     background-color: rgba(255, 255, 255, 0.849);
+   
   }
   #package-card h5{
     color: #9bc8df;
@@ -627,7 +633,7 @@ slider Area Style
   }
   #package-card-img{
     position: relative;
-    
+   
   }
 
   .package-card-img-smail{
@@ -645,12 +651,27 @@ slider Area Style
 
 /* grand-hotel style start */
   #grand-hotel-bg-style{
+   
     background-color: rgba(29, 6, 243,);
     z-index: 1;
     position: relative;
 
   }
-  #grand-hotel-bg-style::after{
+  #grand-hotel-bg-style img{
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  #grand-hotel-details{
+   
+  }
+#grand-hotel-details img{
+  width: 100%;
+  height: 100%;
+  
+}
+#grand-hotel-bg-style::after{
 position: absolute;
 left: 0;
 top: 0;
@@ -660,8 +681,8 @@ background-color: #7aafc5;
 content:'';
 opacity: .7;
   }
-  .grand-hotel-contain{
-    z-index: 99999; 
+.grand-hotel-contain{
+z-index: 99999; 
 position: absolute;
 left: 50%;
 top: 50%;
@@ -681,14 +702,15 @@ color: #ffffff;
   }
   /* grand-hotel style end */
 
+
+
+
+
+
+
   /* our-room-section-start */
-#our-room-section{
 
-  
-  
-
-}
-#our-room-section.our-room-contain::before{
+/* #our-room-section.our-room-contain::before{
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
@@ -697,14 +719,15 @@ color: #ffffff;
   width: 30px;
   background-color: rgb(255, 255, 255);
   content: '';
-}
-#our-room-section .our-room-card img{
+} */
+#our-room-section .our-room-section-cards .our-room-section-card img{
   
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
 }
+
 
 .view-all-button{
   height: 120px;
@@ -714,7 +737,7 @@ color: #ffffff;
   background: linear-gradient(to right, #b4afa9, #7e6f5d);
   display: flex;
 align-items: center;
-margin-top: 50%;
+
 }
 .view-all-button:hover{
 background: #777776;
@@ -799,14 +822,6 @@ margin: 7px;
 z-index: 9999;
 cursor: pointer;
 }
-
-
-
-
-
-
-
-
 
 
 

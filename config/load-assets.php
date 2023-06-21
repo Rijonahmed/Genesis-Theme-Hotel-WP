@@ -132,8 +132,8 @@ function rijon_css_js_file_calling(){
 	wp_enqueue_style('bootstrap');
 	
 // slick theme file
-wp_register_style( 'fontawesome', get_stylesheet_directory_uri().'/assets/css/fontawesome.min.css', array(), 'time', 'all' );
-	wp_enqueue_style('fontawesome');
+// wp_register_style( 'fontawesome', get_stylesheet_directory_uri().'/assets/css/fontawesome.min.css', array(), 'time', 'all' );
+// 	wp_enqueue_style('fontawesome');
 
 	// slick theme file
 wp_register_style( 'slick-theme-css', get_stylesheet_directory_uri().'/assets/css/slick-theme.css', array(), 'time', 'all' );
