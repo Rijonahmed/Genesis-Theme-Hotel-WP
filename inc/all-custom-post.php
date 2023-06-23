@@ -105,40 +105,7 @@ function custom_sister(){
 
 add_action( 'init', 'custom_sister');
 
-// custom Our Rooms register
-function custom_our_rooms(){
-    register_post_type( 'rooms', 
-    array(
-        'labels'=> array(
-            'name' => ('Our Rooms'),
-            'singular_name' => ('Our Rooms'),
-            'add_new' => ('Add New Our Rooms'),
-            'add_new_item' => ('Add New Our Rooms'),
-            'edit_item' => ('Edit Our Rooms'),
-            'new_item' => ('New Our Rooms'),
-            'view_item' => ('View Our Rooms'),
-            'not_found'=> ('Sorry, we cound\'n find the Our Rooms you are looking for. '),
-        ),
-        'menu_icon' => 'dashicons-admin-multisite',
-        'public' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => true,
-        'menu_position' => 5,
-        'has_archive' => true,
-        'hierarchial' => true,
-        'show_ui' => true,
-        'capability_type' => 'post',
-        'rewrite' => array('slag' => 'Our Rooms'),
-        'supports' => array('title', 'thumbnail', 'editor' , 'excerpt'),
 
-    )
-    
-    );
-    add_theme_support('post-thumbnails');
-}
-
-
-add_action( 'init', 'custom_our_rooms');
 
 
 
@@ -208,7 +175,7 @@ function create_rooms_types_function(){
         'has_archive' => true,
         'hierarchical' => true,
         'menu_position' => null,
-        'menu_icon' => 'dashicons-format-gallery',
+        'menu_icon' => 'dashicons-admin-multisite',
         'supports' => array('title', 'thumbnail','editor' , 'excerpt')
     );
     $labels = array(

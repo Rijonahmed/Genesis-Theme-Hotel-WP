@@ -87,6 +87,7 @@ function hotel_customize_main_header(){
 
 				
 			?>
+            
             </div>
         </div>
     </div>

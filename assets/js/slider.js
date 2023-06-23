@@ -7,7 +7,7 @@
     arrows: false,
     autoplay:true,
     loop: true,
-    dots: true
+    
   });
 
   $('.responsive').slick({
